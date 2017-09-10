@@ -4,14 +4,14 @@
 #
 Name     : urlgrabber
 Version  : 3.10.2
-Release  : 20
+Release  : 21
 URL      : http://urlgrabber.baseurl.org/download/urlgrabber-3.10.2.tar.gz
 Source0  : http://urlgrabber.baseurl.org/download/urlgrabber-3.10.2.tar.gz
 Summary  : A high-level cross-protocol url-grabber
 Group    : Development/Tools
 License  : LGPL-2.1
 Requires: urlgrabber-bin
-Requires: urlgrabber-python
+Requires: urlgrabber-legacypython
 Requires: urlgrabber-data
 BuildRequires : openssl
 BuildRequires : openssl-dev
@@ -44,20 +44,23 @@ Group: Data
 data components for the urlgrabber package.
 
 
-%package python
-Summary: python components for the urlgrabber package.
+%package legacypython
+Summary: legacypython components for the urlgrabber package.
 Group: Default
 
-%description python
-python components for the urlgrabber package.
+%description legacypython
+legacypython components for the urlgrabber package.
 
 
 %prep
 %setup -q -n urlgrabber-3.10.2
 
 %build
+export http_proxy=http://127.0.0.1:9/
+export https_proxy=http://127.0.0.1:9/
+export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1492443779
+export SOURCE_DATE_EPOCH=1505072778
 python2 setup.py build -b py2
 
 %install
@@ -79,6 +82,6 @@ python2 -tt setup.py build -b py2 install --root=%{buildroot}
 /usr/share/doc/urlgrabber-3.10.2/README
 /usr/share/doc/urlgrabber-3.10.2/TODO
 
-%files python
+%files legacypython
 %defattr(-,root,root,-)
 /usr/lib/python2*/*
