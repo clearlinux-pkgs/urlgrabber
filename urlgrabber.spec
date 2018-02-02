@@ -4,7 +4,7 @@
 #
 Name     : urlgrabber
 Version  : 3.10.2
-Release  : 21
+Release  : 22
 URL      : http://urlgrabber.baseurl.org/download/urlgrabber-3.10.2.tar.gz
 Source0  : http://urlgrabber.baseurl.org/download/urlgrabber-3.10.2.tar.gz
 Summary  : A high-level cross-protocol url-grabber
