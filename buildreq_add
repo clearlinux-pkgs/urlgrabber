@@ -2,3 +2,5 @@
 # picked up automatically. One name per line, no whitespace.
 openssl
 openssl-dev
+python-core
+python-dev
